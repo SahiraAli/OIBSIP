@@ -58,10 +58,16 @@ Array.from(buttons).forEach((button)=>{
       document.querySelector('input').value = string;
     }
     else if(e.target.innerHTML == 'DEL'){
-      let inputElement = document.querySelector('input');
+    let inputElement = document.querySelector('input');
     let inputValue = inputElement.value;
-    inputElement.value = inputValue.slice(0, -1);
-    }
+    if(inputValue > 0){
+      inputElement.value = inputValue.slice(0, -1);
+      }
+      else{
+        let digit = e.target.innerHTML;
+        document.querySelector('input').value += digit;
+      }
+  }
     else{
       console.log(e.target)
     string = string + e.target.innerHTML;
